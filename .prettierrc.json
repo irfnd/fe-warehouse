@@ -1,8 +1,9 @@
 {
-	"endOfLine": "auto",
-	"printWidth": 110,
+	"endOfLine": "crlf",
+	"jsxSingleQuote": false,
+	"printWidth": 125,
 	"semi": true,
-	"singleQuote": false,
+	"singleQuote": true,
 	"tabWidth": 2,
 	"trailingComma": "es5",
 	"useTabs": true
