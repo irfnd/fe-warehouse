@@ -22,7 +22,7 @@ export default function InputText(props) {
 				placeholder={placeholder}
 				{...register(name)}
 			/>
-			{errors[name] && <FormErrorMessage>{errors[name].message}</FormErrorMessage>}
+			{errors[name] && <FormErrorMessage>*{errors[name].message}</FormErrorMessage>}
 		</FormControl>
 	);
 }

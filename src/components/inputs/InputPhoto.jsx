@@ -52,11 +52,11 @@ export default function InputPhoto(props) {
 				justify="center"
 				align="center"
 				h="300px"
-				borderColor={Errors || errors[name] ? 'red.300' : 'inherit'}
-				borderWidth={1}
+				borderColor={Errors || errors[name] ? 'red.500' : 'inherit'}
+				borderWidth={Errors || errors[name] ? 2 : 1}
 				rounded="xl"
 				shadow="md"
-				_hover={{ borderColor: Errors || errors[name] ? 'red.300' : useColorModeValue('blackAlpha.300', 'whiteAlpha.400') }}
+				_hover={{ borderColor: Errors || errors[name] ? 'red.500' : useColorModeValue('blackAlpha.300', 'whiteAlpha.400') }}
 				cursor="pointer"
 				{...getRootProps()}
 			>
@@ -77,14 +77,14 @@ export default function InputPhoto(props) {
 				)}
 			</Flex>
 			{errors[name] && (
-				<Text fontSize={13} color="red.300">
-					{errors[name].message}
+				<Text fontSize={14} color="red.500">
+					*{errors[name].message}
 				</Text>
 			)}
 			{Errors &&
 				Errors.map((el, i) => (
-					<Text key={i} fontSize={13} color="red.300">
-						{el.message}
+					<Text key={i} fontSize={14} color="red.500">
+						*{el.message}
 					</Text>
 				))}
 			{SelectedFile && (
