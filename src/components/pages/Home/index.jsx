@@ -1,13 +1,17 @@
+import { useTitle } from 'react-use';
+
 // Components
 import BaseLayout from '@/components/layouts/BaseLayout';
-import SearchBar from '@/components/pages/Home/SearchBar';
+import SearchStuff from '@/components/pages/Home/SearchStuff';
 import AddButton from '@/components/pages/Home/AddButton';
 import ListStuff from '@/components/pages/Home/ListStuff';
 
 export default function Home() {
+	useTitle('Warehouse - Homepage');
+
 	return (
 		<BaseLayout>
-			<SearchBar />
+			<SearchStuff />
 			<AddButton />
 			<ListStuff />
 		</BaseLayout>

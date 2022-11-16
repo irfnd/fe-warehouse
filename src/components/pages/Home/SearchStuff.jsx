@@ -5,7 +5,7 @@ import { Search } from 'lucide-react';
 // Components
 import FilterStuff from '@/components/pages/Home/FilterStuff';
 
-export default function SearchBar() {
+export default function SearchStuff() {
 	return (
 		<Flex gap={2}>
 			<InputGroup size="lg">
