@@ -7,7 +7,7 @@ import Input from '@/components/inputs/Input';
 export default function ModalForm() {
 	return (
 		<Flex direction="column" gap={4}>
-			<Input name="photo" type="photo" placeholder="Input photo" />
+			<Input name="photo" type="photo" placeholder="Drag & Drop photo here" />
 			<Input name="name" label="Name" placeholder="Input name" />
 			<Input name="purchase" type="number" label="Purchase Price" placeholder="Input purchase price" />
 			<Input name="selling" type="number" label="Selling Price" placeholder="Input selling price" />

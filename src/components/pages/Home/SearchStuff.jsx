@@ -7,7 +7,7 @@ import FilterStuff from '@/components/pages/Home/FilterStuff';
 
 export default function SearchStuff() {
 	return (
-		<Flex gap={2}>
+		<Flex gap={4}>
 			<InputGroup size="lg">
 				<InputLeftElement pointerEvents="none">
 					<Search />
