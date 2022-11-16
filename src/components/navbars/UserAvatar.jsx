@@ -56,14 +56,7 @@ function UserDrawer() {
 
 	return (
 		<Flex>
-			<IconButton
-				variant="ghost"
-				colorScheme="purple"
-				size="lg"
-				icon={<MenuIcon size={32} />}
-				rounded="xl"
-				onClick={onOpen}
-			/>
+			<IconButton variant="ghost" colorScheme="purple" size="lg" icon={<MenuIcon size={32} />} rounded="xl" onClick={onOpen} />
 			<Drawer isOpen={isOpen} placement="right" size="xs" onClose={onClose}>
 				<DrawerOverlay />
 				<DrawerContent>

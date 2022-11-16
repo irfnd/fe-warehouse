@@ -10,13 +10,5 @@ export default function ToggleTheme({ disclosure }) {
 		if (disclosure) disclosure.onClose();
 	};
 
-	return (
-		<IconButton
-			icon={colorMode === 'light' ? <Moon /> : <Sun />}
-			colorScheme="purple"
-			size="lg"
-			rounded="full"
-			onClick={onClick}
-		/>
-	);
+	return <IconButton icon={colorMode === 'light' ? <Moon /> : <Sun />} colorScheme="purple" size="lg" rounded="full" onClick={onClick} />;
 }

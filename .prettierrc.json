@@ -1,7 +1,7 @@
 {
 	"endOfLine": "crlf",
 	"jsxSingleQuote": false,
-	"printWidth": 125,
+	"printWidth": 145,
 	"semi": true,
 	"singleQuote": true,
 	"tabWidth": 2,
