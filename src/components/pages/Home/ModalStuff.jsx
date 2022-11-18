@@ -1,6 +1,10 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { StuffSchema } from '@/helpers/Validations';
+import { useUploadFile } from 'react-firebase-hooks/storage';
+import { storage, firestore } from '@/helpers/Firebase';
+import { ref, getDownloadURL } from 'firebase/storage';
+import { collection, addDoc } from 'firebase/firestore';
 
 // Styles & Icons
 import {
@@ -20,12 +24,17 @@ import ModalForm from '@/components/pages/Home/ModalForm';
 
 export default function ModalStuff({ disclosure }) {
 	const { isOpen, onClose } = disclosure;
+	const [uploadFile] = useUploadFile();
+	const db = collection(firestore, 'stuff');
 
 	const formOptions = { resolver: yupResolver(StuffSchema) };
 	const methods = useForm({ ...formOptions });
 
-	const onSubmit = (data) => {
-		console.log(data);
+	const onSubmit = async (data) => {
+		const fileRef = ref(storage, data.photo[0].path);
+		await uploadFile(fileRef, data.photo[0], { contentType: data.photo[0].type });
+		const getFileUrl = await getDownloadURL(fileRef);
+		await addDoc(db, { ...data, photo: getFileUrl });
 		methods.reset();
 		onClose();
 	};
