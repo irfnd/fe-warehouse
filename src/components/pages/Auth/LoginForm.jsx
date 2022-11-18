@@ -23,24 +23,24 @@ export default function LoginForm() {
 			<form onSubmit={methods.handleSubmit(onSubmit)} style={{ width: '100%' }}>
 				<Flex justify="center">
 					<Flex direction="column" justify="center" align="center" w={{ base: 'full', md: '90%', lg: '80%' }} gap={4}>
-						<Input name="email" type="email" label="Email" placeholder="johndoe@mail.com" />
+						{/* <Input name="email" type="email" label="Email" placeholder="johndoe@mail.com" />
 						<Input name="password" type="password" label="Password" placeholder="Password" />
 						<Button type="submit" colorScheme="purple" size="lg" w="full" mt={2} rounded="xl">
 							Login
-						</Button>
+						</Button> */}
 						<Flex position="relative" justify="center" align="center" w="full" my={3}>
 							<Divider />
 							<Text position="absolute" bg={useColorModeValue('white', 'gray.900')} px={2}>
-								or continue with
+								Login with
 							</Text>
 						</Flex>
 						<AuthGoogleBtn />
-						<Flex direction="column" align="center" w="full">
+						{/* <Flex direction="column" align="center" w="full">
 							<Text>Don&apos;t have account yet?</Text>
 							<Link color="purple.500" onClick={() => navigate('/register')}>
 								Register Now
 							</Link>
-						</Flex>
+						</Flex> */}
 					</Flex>
 				</Flex>
 			</form>
