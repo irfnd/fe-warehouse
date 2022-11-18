@@ -1,11 +1,14 @@
+import { SearchActions } from '@/redux/slices/Search';
+import { useDispatch, useSelector } from 'react-redux';
+
 // Styles & Icons
 import { Flex, Input, InputGroup, InputLeftElement, useColorModeValue } from '@chakra-ui/react';
 import { Search } from 'lucide-react';
 
-// Components
-import FilterStuff from '@/components/pages/Home/FilterStuff';
-
 export default function SearchStuff() {
+	const { search } = useSelector((state) => state.search);
+	const dispatch = useDispatch();
+
 	return (
 		<Flex gap={4}>
 			<InputGroup size="lg">
@@ -19,9 +22,10 @@ export default function SearchStuff() {
 					rounded="xl"
 					shadow="md"
 					focusBorderColor="purple.500"
+					value={search}
+					onChange={(e) => dispatch(SearchActions.setSearch(e.target.value))}
 				/>
 			</InputGroup>
-			<FilterStuff />
 		</Flex>
 	);
 }

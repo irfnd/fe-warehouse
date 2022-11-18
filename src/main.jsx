@@ -17,9 +17,18 @@ import '@fontsource/inter/700.css';
 import '@fontsource/inter/800.css';
 import '@fontsource/inter/900.css';
 
+// Redux
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from '@/redux/store';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<ChakraProvider theme={theme}>
 		<ColorModeScript initialColorMode={theme.config.initialColorMode} />
-		<App />
+		<Provider store={store}>
+			<PersistGate loading={null} persistor={persistor}>
+				<App />
+			</PersistGate>
+		</Provider>
 	</ChakraProvider>
 );
