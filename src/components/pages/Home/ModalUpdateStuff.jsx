@@ -7,6 +7,7 @@ import { ref, getDownloadURL } from 'firebase/storage';
 import { doc, updateDoc } from 'firebase/firestore';
 import useGetData from '@/hooks/useGetData';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 // Styles & Icons
 import {
@@ -33,10 +34,15 @@ export default function ModalUpdateStuff({ disclosure, item }) {
 	const { value } = useGetData();
 
 	const formOptions = { resolver: yupResolver(StuffSchema) };
-	const methods = useForm({
-		...formOptions,
-		defaultValues: { photo: item.photo, name: item.name, purchase: item.purchase, selling: item.selling, stock: item.stock },
-	});
+	const methods = useForm({ ...formOptions });
+
+	useEffect(() => {
+		methods.setValue('photo', item.photo);
+		methods.setValue('name', item.name);
+		methods.setValue('purchase', item.purchase);
+		methods.setValue('selling', item.selling);
+		methods.setValue('stock', item.stock);
+	}, [item]);
 
 	const onSubmit = async (data) => {
 		let photo;
