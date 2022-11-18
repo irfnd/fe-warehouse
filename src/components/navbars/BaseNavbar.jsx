@@ -3,7 +3,7 @@ import { Flex } from '@chakra-ui/react';
 
 // Components
 import BrandLogo from '@/components/navbars/BrandLogo';
-import UserAvatar from '@/components/navbars/UserAvatar';
+import UserAvatar from '@/components/navbars/avatars/UserAvatar';
 
 export default function BaseNavbar() {
 	return (

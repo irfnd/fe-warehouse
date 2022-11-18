@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 
 // Styles & Icons
 import { Button, Divider, Flex, Link, Text, useColorModeValue } from '@chakra-ui/react';
-import { FcGoogle } from 'react-icons/fc';
 
 // Components
 import Input from '@/components/inputs/Input';
+import AuthGoogleBtn from '@/components/pages/Auth/AuthGoogleBtn';
 
 export default function LoginForm() {
 	const navigate = useNavigate();
@@ -24,7 +24,7 @@ export default function LoginForm() {
 				<Flex justify="center">
 					<Flex direction="column" justify="center" align="center" w={{ base: 'full', md: '90%', lg: '80%' }} gap={4}>
 						<Input name="email" type="email" label="Email" placeholder="johndoe@mail.com" />
-						<Input name="password" type="password" label="Password" placeholder="password" />
+						<Input name="password" type="password" label="Password" placeholder="Password" />
 						<Button type="submit" colorScheme="purple" size="lg" w="full" mt={2} rounded="xl">
 							Login
 						</Button>
@@ -34,9 +34,7 @@ export default function LoginForm() {
 								or continue with
 							</Text>
 						</Flex>
-						<Button leftIcon={<FcGoogle />} type="button" size="lg" w="full" rounded="xl">
-							Google
-						</Button>
+						<AuthGoogleBtn />
 						<Flex direction="column" align="center" w="full">
 							<Text>Don&apos;t have account yet?</Text>
 							<Link color="purple.500" onClick={() => navigate('/register')}>

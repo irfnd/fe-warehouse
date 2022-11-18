@@ -9,7 +9,6 @@ import BaseFooter from '@/components/footers/BaseFooter';
 
 export default function BaseLayout({ children, title }) {
 	useTitle(`Warehouse - ${title}`);
-
 	return (
 		<Flex bg={useColorModeValue('white', 'gray.900')} minH="100vh" pb={10}>
 			<Container maxW={{ base: 'sm', sm: 'container.sm', md: 'container.md', lg: 'container.lg', xl: 'container.xl' }}>
