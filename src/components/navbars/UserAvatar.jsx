@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 // Styles & Icons
 import {
 	Avatar,
@@ -28,6 +30,8 @@ export default function UserAvatar() {
 }
 
 function UserMenu() {
+	const navigate = useNavigate();
+
 	return (
 		<Flex align="center" gap={2}>
 			<Menu>
@@ -43,7 +47,9 @@ function UserMenu() {
 					</Flex>
 				</MenuButton>
 				<MenuList mt={2}>
-					<MenuItem icon={<LogOut size={18} />}>logout</MenuItem>
+					<MenuItem icon={<LogOut size={18} />} onClick={() => navigate('/login')}>
+						logout
+					</MenuItem>
 				</MenuList>
 			</Menu>
 			<ToggleTheme />
@@ -53,6 +59,7 @@ function UserMenu() {
 
 function UserDrawer() {
 	const { isOpen, onOpen, onClose } = useDisclosure();
+	const navigate = useNavigate();
 
 	return (
 		<Flex>
@@ -70,7 +77,7 @@ function UserDrawer() {
 								</Text>
 								<Text fontSize={18}>Administrator</Text>
 							</Flex>
-							<Button leftIcon={<LogOut size={18} />} colorScheme="red">
+							<Button leftIcon={<LogOut size={18} />} colorScheme="red" onClick={() => navigate('/login')}>
 								Logout
 							</Button>
 						</Flex>

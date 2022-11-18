@@ -13,7 +13,7 @@ export default function InputPhoto(props) {
 	const [Errors, setErrors] = useState(null);
 
 	const { register, formState, setValue } = useFormContext();
-	const { onChange, formName } = register(name);
+	const { formName } = register(name);
 	const { errors } = formState;
 
 	const onDrop = (accepted, rejected) => {
@@ -29,6 +29,7 @@ export default function InputPhoto(props) {
 			});
 			setErrors(customError);
 		} else {
+			if (SelectedFile?.preview) URL.revokeObjectURL(SelectedFile.preview);
 			setSelectedFile({ ...accepted[0], preview: URL.createObjectURL(accepted[0]) });
 			setValue(name, accepted);
 			setErrors(null);
@@ -52,15 +53,17 @@ export default function InputPhoto(props) {
 				justify="center"
 				align="center"
 				h="300px"
-				borderColor={Errors || errors[name] ? 'red.500' : 'inherit'}
+				borderColor={Errors || errors[name] ? useColorModeValue('red.500', 'red.300') : 'inherit'}
 				borderWidth={Errors || errors[name] ? 2 : 1}
 				rounded="xl"
 				shadow="md"
-				_hover={{ borderColor: Errors || errors[name] ? 'red.500' : useColorModeValue('blackAlpha.300', 'whiteAlpha.400') }}
+				_hover={{
+					borderColor: Errors || errors[name] ? useColorModeValue('red.500', 'red.300') : useColorModeValue('blackAlpha.300', 'whiteAlpha.400'),
+				}}
 				cursor="pointer"
 				{...getRootProps()}
 			>
-				<input type="hidden" name={formName} aria-label={formName} onChange={onChange} {...getInputProps()} />
+				<input type="hidden" name={formName} aria-label={formName} {...getInputProps()} />
 				{SelectedFile && <Image src={SelectedFile.preview} alt="Stuff Photo" boxSize="full" objectFit="contain" rounded="xl" />}
 				{!SelectedFile && (
 					<Flex direction="column" align="center" jusfity="center">
@@ -77,13 +80,13 @@ export default function InputPhoto(props) {
 				)}
 			</Flex>
 			{errors[name] && (
-				<Text fontSize={14} color="red.500">
+				<Text fontSize={14} color={useColorModeValue('red.500', 'red.300')}>
 					*{errors[name].message}
 				</Text>
 			)}
 			{Errors &&
 				Errors.map((el, i) => (
-					<Text key={i} fontSize={14} color="red.500">
+					<Text key={i} fontSize={14} color={useColorModeValue('red.500', 'red.300')}>
 						*{el.message}
 					</Text>
 				))}

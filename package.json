@@ -27,9 +27,11 @@
 		"react-dom": "^18.2.0",
 		"react-dropzone": "^14.2.3",
 		"react-hook-form": "^7.39.4",
+		"react-icons": "^4.6.0",
 		"react-router-dom": "^6.4.3",
 		"react-use": "^17.4.0",
-		"yup": "^0.32.11"
+		"yup": "^0.32.11",
+		"yup-password": "^0.2.2"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.20.2",
