@@ -25,7 +25,7 @@ import {
 // Components
 import ModalForm from '@/components/pages/Home/ModalForm';
 
-export default function ModalStuff({ disclosure }) {
+export default function ModalAddStuff({ disclosure }) {
 	const { isOpen, onClose } = disclosure;
 	const [Loading, setLoading] = useState(false);
 	const toast = useToast();

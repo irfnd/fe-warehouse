@@ -12,9 +12,13 @@ export default function InputPhoto(props) {
 	const [SelectedFile, setSelectedFile] = useState(null);
 	const [Errors, setErrors] = useState(null);
 
-	const { register, formState, setValue } = useFormContext();
+	const { register, formState, setValue, getValues } = useFormContext();
 	const { formName } = register(name);
 	const { errors } = formState;
+
+	useState(() => {
+		setSelectedFile(getValues('photo'));
+	}, []);
 
 	const onDrop = (accepted, rejected) => {
 		if (rejected.length > 0) {
@@ -58,13 +62,16 @@ export default function InputPhoto(props) {
 				rounded="xl"
 				shadow="md"
 				_hover={{
-					borderColor: Errors || errors[name] ? useColorModeValue('red.500', 'red.300') : useColorModeValue('blackAlpha.300', 'whiteAlpha.400'),
+					borderColor:
+						Errors || errors[name] ? useColorModeValue('red.500', 'red.300') : useColorModeValue('blackAlpha.300', 'whiteAlpha.400'),
 				}}
 				cursor="pointer"
 				{...getRootProps()}
 			>
 				<input type="hidden" name={formName} aria-label={formName} {...getInputProps()} />
-				{SelectedFile && <Image src={SelectedFile.preview} alt="Stuff Photo" boxSize="full" objectFit="contain" rounded="xl" />}
+				{SelectedFile && (
+					<Image src={SelectedFile?.preview || SelectedFile} alt="Stuff Photo" boxSize="full" objectFit="contain" rounded="xl" />
+				)}
 				{!SelectedFile && (
 					<Flex direction="column" align="center" jusfity="center">
 						<Icon as={ImageIcon} color={useColorModeValue('gray.400', 'whiteAlpha.500')} fontSize={40} />

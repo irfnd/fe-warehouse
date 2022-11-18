@@ -3,10 +3,10 @@ import { Button, useDisclosure } from '@chakra-ui/react';
 import { Plus } from 'lucide-react';
 
 // Components
-import ModalStuff from '@/components/pages/Home/ModalStuff';
+import ModalAddStuff from '@/components/pages/Home/ModalAddStuff';
 
 export default function AddButton() {
-	const { isOpen, onOpen, onClose } = useDisclosure();
+	const disclosure = useDisclosure();
 
 	return (
 		<>
@@ -17,11 +17,11 @@ export default function AddButton() {
 				leftIcon={<Plus />}
 				rounded="xl"
 				shadow="lg"
-				onClick={onOpen}
+				onClick={disclosure.onOpen}
 			>
 				Add New Stuff
 			</Button>
-			<ModalStuff {...{ disclosure: { isOpen, onClose } }} />
+			<ModalAddStuff {...{ disclosure }} />
 		</>
 	);
 }

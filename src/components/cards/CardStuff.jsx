@@ -4,7 +4,8 @@ import { PackageMinus, PackagePlus, PackageSearch } from 'lucide-react';
 
 // Components
 import MenuStuff from '@/components/pages/Home/MenuStuff';
-import ModalDelete from '@/components/pages/Home/ModalDelete';
+import ModalDeleteStuff from '@/components/pages/Home/ModalDeleteStuff';
+import ModalUpdateStuff from '@/components/pages/Home/ModalUpdateStuff';
 
 export default function CardStuff({ data, id }) {
 	const disclosureDelete = useDisclosure();
@@ -51,7 +52,8 @@ export default function CardStuff({ data, id }) {
 					</Flex>
 				</Flex>
 			</Flex>
-			<ModalDelete {...{ disclosure: disclosureDelete, item: { ...data, id } }} />
+			<ModalDeleteStuff {...{ disclosure: disclosureDelete, item: { ...data, id } }} />
+			<ModalUpdateStuff {...{ disclosure: disclosureUpdate, item: { ...data, id } }} />
 		</>
 	);
 }

@@ -21,7 +21,7 @@ import {
 } from '@chakra-ui/react';
 import { PackageMinus, PackagePlus, PackageSearch } from 'lucide-react';
 
-export default function ModalDelete({ item, disclosure }) {
+export default function ModalDeleteStuff({ item, disclosure }) {
 	const { isOpen, onClose } = disclosure;
 	const [Loading, setLoading] = useState(false);
 
